@@ -1,8 +1,9 @@
-package com.example.hotelmanagement.dao;
+package com.nirvana.hm.dao;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import com.example.hotelmanagement.entity.User;
+
+import com.nirvana.hm.entity.User;
 
 @Repository
 public interface UserRepository extends CrudRepository<User, Integer>{

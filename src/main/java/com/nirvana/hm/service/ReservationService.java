@@ -1,4 +1,4 @@
-package com.example.hotelmanagement.service;
+package com.nirvana.hm.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,8 +9,8 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.hotelmanagement.dao.ReservationRepository;
-import com.example.hotelmanagement.entity.Reservation;
+import com.nirvana.hm.dao.ReservationRepository;
+import com.nirvana.hm.entity.Reservation;
 
 @Service
 @Transactional

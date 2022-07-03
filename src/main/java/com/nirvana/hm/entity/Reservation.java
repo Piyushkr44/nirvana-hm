@@ -1,4 +1,4 @@
-package com.example.hotelmanagement.entity;
+package com.nirvana.hm.entity;
 
 import java.util.Date;
 

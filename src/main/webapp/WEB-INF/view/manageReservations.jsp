@@ -45,6 +45,7 @@
 					      <th scope="col">Guest Id</th>
 					      <th scope="col">Edit</th> 
 					      <th scope="col">Delete</th>
+					      <th scope="col">Invoice</th>
 					    </tr>
 					  </thead>
 					  <tbody>
@@ -57,6 +58,7 @@
 						    		<td>${reservation.guest.guestId}</td>
 						    		<td><a href="update-reservation?id=${reservation.reservationId}"><span class="glyphicon glyphicon-pencil"></span></a></td>
 									<td><a href="delete-reservation?id=${reservation.reservationId}"><span class="glyphicon glyphicon-trash"></span></a></td>
+						    		<td><a href="invoice?id=${reservation.reservationId}"><span class="glyphicon glyphicon-file"></span></a></td>
 						    	</tr>
 						    </c:forEach>
 					  </tbody>

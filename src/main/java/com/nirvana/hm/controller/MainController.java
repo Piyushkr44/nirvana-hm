@@ -1,4 +1,4 @@
-package com.example.hotelmanagement.controller;
+package com.nirvana.hm.controller;
 
 
 import java.io.IOException;
@@ -18,12 +18,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.example.hotelmanagement.entity.Guest;
-import com.example.hotelmanagement.entity.Reservation;
-import com.example.hotelmanagement.entity.User;
-import com.example.hotelmanagement.service.UserService;
-import com.example.hotelmanagement.service.GuestService;
-import com.example.hotelmanagement.service.ReservationService;
+import com.nirvana.hm.entity.Guest;
+import com.nirvana.hm.entity.Reservation;
+import com.nirvana.hm.entity.User;
+import com.nirvana.hm.service.GuestService;
+import com.nirvana.hm.service.InvoiceService;
+import com.nirvana.hm.service.ReservationService;
+import com.nirvana.hm.service.UserService;
 
 
 @Controller
@@ -37,6 +38,9 @@ public class MainController {
 	
 	@Autowired
 	private ReservationService reservationService;
+	
+	@Autowired
+	private InvoiceService invoiceService;
 	
 	@RequestMapping("/")
 	public String displayLogin(HttpServletRequest request) {
@@ -142,6 +146,13 @@ public class MainController {
 		request.setAttribute("reservations", reservationService.findAllReservations());
 		request.setAttribute("mode", "MODE_RESERVATIONS");
 		return "manageReservations";
+	}
+	
+	@GetMapping("/invoice")
+	public String getInvoice(@RequestParam int id, HttpServletRequest request){
+		System.out.println("Inside fetInvoiceMethod Main Controller");
+		request.setAttribute("invoice", invoiceService.getInvoiceByResId(id));
+		return "invoice";
 	}
 }
 	

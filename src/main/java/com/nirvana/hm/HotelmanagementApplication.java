@@ -1,4 +1,4 @@
-package com.example.hotelmanagement;
+package com.nirvana.hm;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
