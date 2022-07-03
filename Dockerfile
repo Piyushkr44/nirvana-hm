@@ -3,4 +3,4 @@ MAINTAINER Piyush<senditto.piyush@gmail.com>
 VOLUME /tmp
 ADD target/hm-0.0.1-SNAPSHOT.jar hm-0.0.1-SNAPSHOT.jar
 EXPOSE 8081
-ENTRYPORT ["-java","-jar","hm-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["-java","-jar","hm-0.0.1-SNAPSHOT.jar"]
