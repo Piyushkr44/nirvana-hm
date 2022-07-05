@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hotel-db-create
+data:
+  mysql_hotel.sql: |
+    DROP DATABASE IF EXISTS hotel;
+    CREATE DATABASE hotel;
+

@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nirvana-app
+  labels:
+    app: nirvana-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nirvana-app
+  template:
+    metadata:
+      labels:
+        app: nirvana-app
+    spec:
+      containers:
+      - name: nirvana-app
+        image: 
+        ports:
+          - containerPort: 8080
+            name: hotel-db-deployment
+        env:
+              - name: DB_HOSTNAME
+                value: 192.168.145.208 #Mysql pord ipAddress
+              - name: DB_PORT
+                value: "3306"
+              - name: DB_NAME 
+                value: "hotel"
+              - name: DB_USERNAME
+                value: "root"
+              - name: DB_PASSWORD
+                valueFrom:
+                  secretKeyRef:
+                    name: my-hm-secret #this is the name of the secret
+                    key: db-password #

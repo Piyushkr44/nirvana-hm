@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hotel-db-deployment
+  labels:
+    app: my-hm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hotel-db-deployment
+  strategy:
+    type: Recreate
+  template:
+    metadata: 
+      name: my-hm-db
+      labels:
+        app: hotel-db-deployment
+    spec:
+      containers:
+      - name: hm-db
+        image: mysql:5.6
+        env: 
+          - name: MYSQL_ROOT_PASSWORD 
+            valueFrom:
+              secretKeyRef:
+                  name: my-db-secret
+                  key: db-password 
+        ports:
+        - containerPort: 3306
+        volumeMounts:
+            - name: mydb-pv  
+              mountPath: /var/lib/mysql 
+            - name: my-hm-secret 
+              mountPath: /docker-entrypoint-initdb.d
+      volumes: 
+        - name: mydb-pv
+          persistentVolumeClaim:
+            claimName: my-hm-pvc
+        - name: hm-db-script
+          configMap:
+            name: hotel-db-create
+
