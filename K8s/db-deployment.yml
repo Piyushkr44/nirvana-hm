@@ -17,27 +17,29 @@ spec:
       labels:
         app: hotel-db-deployment
     spec:
-      containers:
-      - name: hm-db
-        image: mysql:5.6
-        env: 
-          - name: MYSQL_ROOT_PASSWORD 
-            valueFrom:
-              secretKeyRef:
-                  name: my-hm-secret
-                  key: db-password 
-        ports:
-        - containerPort: 3306
-        volumeMounts:
-            - name: mydb-pv
+        containers:
+          - name: my-db-container
+            image: mysql:5.6
+            env:
+              - name: MYSQL_ROOT_PASSWORD 
+                valueFrom:
+                  secretKeyRef:
+                    name: my-hm-secret
+                    key: db-password
+            ports:
+              - containerPort: 3306 
+                name: my-db-container-port 
+            volumeMounts:
+            - name: mysql-persistent-volume  
               mountPath: /var/lib/mysql 
-            - name: my-hm-secret 
-              mountPath: /docker-entrypoint-initdb.d
-      volumes: 
-        - name: mydb-pv
-          persistentVolumeClaim:
-            claimName: my-hm-pvc
-        - name: hm-db-script
-          configMap:
-            name: hotel-db-create
+            - name: usermgmt-dbscript 
+              mountPath: /docker-entrypoint-initdb.d 
+        volumes: #the name of the volume and the mount will be same
+          - name: mysql-persistent-volume 
+            persistentVolumeClaim:
+            #mapped to pvc claim we created earlier
+              claimName: my-hm-pvc
+          - name: usermgmt-dbscript
+            configMap: 
+              name: hotel-db-create
 
