@@ -29,7 +29,7 @@ spec:
         ports:
         - containerPort: 3306
         volumeMounts:
-            - name: mydb-pv  
+            - name: mydb-pv
               mountPath: /var/lib/mysql 
             - name: my-hm-secret 
               mountPath: /docker-entrypoint-initdb.d
