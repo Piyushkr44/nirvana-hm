@@ -169,14 +169,12 @@ public class MainController {
 
 	@GetMapping("/invoice")
 	public String getInvoice(@RequestParam int id, HttpServletRequest request) {
-		System.out.println("Inside fetInvoiceMethod Main Controller");
 		request.setAttribute("invoice", invoiceService.getInvoiceByResId(id));
 		return "invoice";
 	}
 
 	@PostMapping("/register-user")
 	public String registerUser(@ModelAttribute User user, HttpServletRequest request) {
-		System.out.println("Inside registerUser Main Controller");
 		userService.saveUser(user);
 		return "registerSuccess";
 	}
