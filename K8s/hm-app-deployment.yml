@@ -19,7 +19,7 @@ spec:
         image: piyush1607kr/nirvana-hm:v1
         ports:
           - containerPort: 8080
-            name: hotel-db-deployment
+            name: hotel-deploy
         env:
               - name: DB_HOSTNAME
                 value: 192.168.145.233 #Mysql pord ipAddress
