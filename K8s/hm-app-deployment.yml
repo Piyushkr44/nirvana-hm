@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nirvana-app
-        image: 
+        image: piyush1607kr/nirvana-hm:v1
         ports:
           - containerPort: 8080
             name: hotel-db-deployment
