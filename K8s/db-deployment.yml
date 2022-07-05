@@ -28,7 +28,7 @@ spec:
                     key: db-password
             ports:
               - containerPort: 3306 
-                name: db-container-port 
+                name: my-db-container 
             volumeMounts:
             - name: mysql-persistent-volume  
               mountPath: /var/lib/mysql 
