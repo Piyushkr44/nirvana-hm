@@ -22,7 +22,7 @@ spec:
             name: hotel-deploy
         env:
               - name: DB_HOSTNAME
-                value: 192.168.145.233 #Mysql pord ipAddress
+                value: 192.168.145.241 #Mysql pord ipAddress
               - name: DB_PORT
                 value: "3306"
               - name: DB_NAME 
