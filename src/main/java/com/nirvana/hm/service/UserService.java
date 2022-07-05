@@ -22,4 +22,9 @@ public class UserService {
 	public User findByUsernameAndPassword(String userName, String password) {
 		return userRepository.findByUserNameAndPassword(userName, password);
 	}
+	
+	public User saveUser(User user) {
+		System.out.println("Indise saveUser UserService");
+		return userRepository.save(user);
+	}
 }

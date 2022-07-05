@@ -30,16 +30,16 @@ public class GuestService {
 		return guests;
 	}
 	
-	public Optional<Guest> findGuest(int id){
-		return guestRepository.findById(id);
+	public Optional<Guest> findGuest(String id){
+		return guestRepository.findByGuestId(id);
 	}
 	
 	public void saveGues(Guest guest){
 		guestRepository.save(guest);
 	}
 	
-	public void deleteGues(int id){
-		guestRepository.deleteById(id);
+	public void deleteGues(String id){
+		guestRepository.deleteByGuestId(id);
 	}
 }
 

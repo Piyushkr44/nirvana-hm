@@ -37,19 +37,20 @@ public class InvoiceService {
 		System.out.println("Inside getInvoiceByResId 1");
 		Reservation reservation = (reservationRepository.findById(id)).get();
 		System.out.println("Inside getInvoiceByResId 2");
-		Guest guest = (guestRepository.findById(1)).get();
+		Optional<Guest> guest = guestRepository.findByGuestId(reservation.getGuestId());
 		System.out.println("Inside getInvoiceByResId 3");
 		Invoice invoice = new Invoice();
-		invoice.setGuestId(guest.getGuestId());
+		invoice.setGuestId(guest.get().getGuestId());
 		invoice.setReservationId(id);
 		invoice.setRoomNumber(reservation.getRoomNumber());
-		invoice.setGuestName(guest.getGuestName());
+		invoice.setGuestName(guest.get().getGuestName());
 		invoice.setBillDate(getCurrentDate());
 		invoice.setCheckInDate(reservation.getCheckInDate());
 		invoice.setCheckOutDate(reservation.getCheckOutDate());
-		invoice.setGst(12.00f);
+		invoice.setGst(calculateGstCharges(reservation.getCheckInDate(), reservation.getCheckOutDate()));
 		invoice.setPerDayCharges(1200.00f);
 		invoice.setTotalAmount(calculateTotalCharges(reservation.getCheckInDate(), reservation.getCheckOutDate()));
+		invoice.setTotalDay(calculateBoookingDays(reservation.getCheckInDate(), reservation.getCheckOutDate()));
 		System.out.println("Inside getInvoiceByResId 4");
 		return invoice;
 	}
@@ -66,7 +67,6 @@ public class InvoiceService {
 		float gstCharges = calculateGstCharges(checkInDate, checkOutDate);
 		System.out.println("Total: "+totalCostWithoutGST+gstCharges);
 		return totalCostWithoutGST+gstCharges;	
-		//return calculateGstCharges(checkInDate, checkOutDate)+((calculateBoookingDays(checkInDate, checkOutDate)*Long.valueOf(1200)));
 	}
 	
 	public long calculateBoookingDays(Date checkInDate, Date checkOutDate){

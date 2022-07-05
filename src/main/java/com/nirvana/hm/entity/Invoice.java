@@ -5,7 +5,7 @@ import java.util.Date;
 public class Invoice {
 	
 	private String billDate;
-	private int guestId;
+	private String guestId;
 	private String guestName;
 	private int reservationId;
 	private Date checkInDate;
@@ -14,16 +14,19 @@ public class Invoice {
 	private float perDayCharges;
 	private float gst;
 	private float totalAmount;
+	private float roomRent;
+	private long totalDay;
 	public String getBillDate() {
 		return billDate;
 	}
 	public void setBillDate(String billDate) {
 		this.billDate = billDate;
 	}
-	public int getGuestId() {
+	
+	public String getGuestId() {
 		return guestId;
 	}
-	public void setGuestId(int guestId) {
+	public void setGuestId(String guestId) {
 		this.guestId = guestId;
 	}
 	public String getGuestName() {
@@ -74,5 +77,16 @@ public class Invoice {
 	public void setTotalAmount(float totalAmount) {
 		this.totalAmount = totalAmount;
 	}
-
+	public float getRoomRent() {
+		return roomRent;
+	}
+	public void setRoomRent(float roomRent) {
+		this.roomRent = roomRent;
+	}
+	public long getTotalDay() {
+		return totalDay;
+	}
+	public void setTotalDay(long totalDay) {
+		this.totalDay = totalDay;
+	}
 }

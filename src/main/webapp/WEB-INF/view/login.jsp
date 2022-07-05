@@ -71,11 +71,12 @@
 		<!-- end of styles -->	
 	</head>
 	
-	<body class="text-center">
+	<body class="text-center" style="background-color:#e2e4c0;">
 	<!-- log in form -->	
 	    <form class="form-signin" method="POST" action="/login-user">
 	      <img class="mb-4" src="https://cdn2.iconfinder.com/data/icons/travel-caramel-vol-1/256/5_STARS_HOTEL-512.png" alt="Hotel" width="72" height="72">
-	      <h1 class="h3 mb-3 font-weight-normal">Please Log in</h1>
+	      <div>&#9733;&#9733;&#9733;</div>
+	      <h1 class="h3 mb-3 font-weight-normal">Login</h1>
 	      
 	      <!-- user name input -->	
 	      <label for="userName" class="sr-only">User Name</label>
@@ -89,8 +90,9 @@
 	      <br>
 	      <!-- end of password input -->	
 	       
-	      <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
+	      <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+	      	  <a href="/register">Register User</a>
 	   </form>
-	   <!-- end of log in form -->	
   </body>
+			
 </html>

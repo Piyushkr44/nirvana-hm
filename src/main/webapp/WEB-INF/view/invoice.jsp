@@ -25,10 +25,14 @@
 }
 </style>
 </head>
-<body>
+<body style="background-color:#e2e4c0;">
 	<div class="text-center">
-		<h1>Welcome</h1>
-		<br> <small class="text-muted">Manage Reservations</small>
+		<h1 style="color:red;"font-family:georgia,garamond,serif;font-size:16px;font-style:italic;">NIRVANA Inn</h1>
+		<hr size="8" width="100%" color="red"> 
+		<br> <small class="text-muted">Invoice Details</small>
+	</div>
+	<div class="text-right">
+		<a href="/">Logout</a>
 	</div>
 	<jsp:include page="navRes.jsp"></jsp:include>
 	<div class="section">
@@ -37,9 +41,9 @@
 			<table class="table table-bordered">
 				<tbody>
 					<tr>
-						<td scope="col">Guest Name : ${invoice.guestName}</td>
-						<td scope="col">Guest ID : ${invoice.guestId}</td>
-						<td scope="col">Bill Date : ${invoice.billDate}</td>
+						<td style="font-weight:bold" scope="col">Guest Name : ${invoice.guestName}</td>
+						<td style="font-weight:bold" scope="col">Guest ID : ${invoice.guestId}</td>
+						<td style="font-weight:bold" scope="col">Bill Date : ${invoice.billDate}</td>
 					</tr>
 				</tbody>
 			</table>
@@ -55,38 +59,24 @@
 						<td scope="col">Check Out Date : ${invoice.checkOutDate}</th>
 					</tr>	
 					<tr>
-						<td scope="col">Room perday charges</td>
+						<td scope="col">Room per day charges</td>
 						<td scope="col">${invoice.perDayCharges}</th>
 					</tr>	
 					<tr>
-						<td scope="col">GST %</td>
+						<td scope="col">GST 18%</td>
 						<td scope="col">${invoice.gst}</th>
 					</tr>	
 					<tr>
-						<td scope="col">Total charges inclusive of all tasxes</td>
-						<td scope="col">${invoice.totalAmount}</th>
-					</tr>		
+						<td scope="col">No. of days</td>
+						<td scope="col">${invoice.totalDay}</th>
+					</tr>	
 					<tr>
-						
-						<td></td>
-					<!-- </tr>
-						<th scope="col">Check In</th>
-						<th scope="col">Check Out</th>
-						<th scope="col">Guest Id</th>
-					</tr> -->
-				
-
-					<%-- <tr>
-						<td>${invoice.reservationId}</td>
-						<td>${invoice.roomNumber}</td>
-						<td>${invoice.checkInDate}</td>
-						<td>${invoice.checkOutDate}</td>
-						<td>${invoice.guest.guestId}</td>
-					</tr> --%>
-
+						<td style="font-weight:bold" scope="col">Total charges inclusive of all taxes</td>
+						<td style="font-weight:bold" scope="col">${invoice.totalAmount}</th>
+					</tr>		
+					<tr>											
 				</tbody>
 			</table>
-			<!-- end of table -->
 			<a class="btn btn-light btn-sm" href="/welcome">Back</a>
 		</div>
 	</div>

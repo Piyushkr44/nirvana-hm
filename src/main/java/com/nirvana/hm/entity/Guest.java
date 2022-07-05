@@ -17,8 +17,7 @@ public class Guest {
 	
 	@Id
 	@Column(name="guestId")
-	@GeneratedValue(strategy=GenerationType.IDENTITY )
-	private int guestId;
+	private String guestId;
 	
 	@Column(name="guestName")
 	private String guestName;
@@ -29,24 +28,20 @@ public class Guest {
 	@Column(name="guestEmail")
 	private String guestEmail;
 	
-	@OneToMany(mappedBy="guest")
+	/*@OneToMany(mappedBy="guest")
 	//@JoinColumn(name="guestId")
-	private List<Reservation> reservations;
+	private List<Reservation> reservations;*/
 	
 	public Guest() {
 		
 	}
 
-	public Guest(String guestName, String phoneNumber, String guestEmail, List<Reservation> reservations) {
+	public Guest(String guestName, String phoneNumber, String guestEmail) {
 		super();
 		this.guestName = guestName;
 		this.phoneNumber = phoneNumber;
 		this.guestEmail = guestEmail;
-		this.reservations = reservations;
-	}
-
-	public int getGuestId() {
-		return guestId;
+		//this.reservations = reservations;
 	}
 
 	public String getGuestName() {
@@ -73,12 +68,20 @@ public class Guest {
 		this.guestEmail = guestEmail;
 	}
 
-	public List<Reservation> getReservations() {
+	/*public List<Reservation> getReservations() {
 		return reservations;
 	}
 
 	public void setReservations(List<Reservation> reservations) {
 		this.reservations = reservations;
+	}*/
+
+	public String getGuestId() {
+		return guestId;
 	}
-	
+
+	public void setGuestId(String guestId) {
+		this.guestId = guestId;
+	}
+
 }

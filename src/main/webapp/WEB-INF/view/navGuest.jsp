@@ -5,7 +5,7 @@
 		</div>
 		<ul class="nav navbar-nav">
 	      <li><a href="/new-guest">Add Guest</a></li>
-	      <li><a href="/">Logout</a></li>
+	     <!--  <li><a href="/">Logout</a></li> -->
 		</ul>
 	</div>
 </nav>

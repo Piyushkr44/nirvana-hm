@@ -33,19 +33,22 @@ public class Reservation {
 	@Column(name="roomNumber")
 	private int roomNumber;
 	
-	@ManyToOne
-	private Guest guest;
+	/*@ManyToOne
+	private Guest guest;*/
+	@Column(name="guestId")
+	private String guestId;
 
 	public Reservation() {
 		
 	}
 
-	public Reservation(Date checkInDate, Date checkOutDate, int roomNumber, Guest guest) {
+	public Reservation(int reservationId, Date checkInDate, Date checkOutDate, int roomNumber, String guestGuestId) {
 		super();
+		this.reservationId = reservationId;
 		this.checkInDate = checkInDate;
 		this.checkOutDate = checkOutDate;
 		this.roomNumber = roomNumber;
-		this.guest = guest;
+		this.guestId = guestGuestId;
 	}
 
 	public int getReservationId() {
@@ -80,12 +83,23 @@ public class Reservation {
 		this.roomNumber = roomNumber;
 	}
 
-	public Guest getGuest() {
+	public String getGuestId() {
+		return guestId;
+	}
+
+	public void setGuestId(String guestId) {
+		this.guestId = guestId;
+	}
+
+
+	/*public Guest getGuest() {
 		return guest;
 	}
 
 	public void setGuest(Guest guest) {
 		this.guest = guest;
-	}
+	}*/
+	
+	
 	
 }
