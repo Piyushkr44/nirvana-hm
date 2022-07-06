@@ -1,0 +1,63 @@
+=========================================================
+Storage Persistence and Storage Persistence Claim
+In worker node
+mkdir /mnt/data
+cd /mnt/data/
+ls
+
+In master 
+git pull
+kubectl apply -f pv.yml
+kubectl get pv
+git pull
+kubectl apply -f pvc.yml
+kubectl get pv
+kubectl get pvc
+
+ConfigMap
+---------
+git pull
+kubectl apply -f configmap.yml
+kubectl get configmap
+kubectl describe configmap usermgmt-dbcreation-script
+
+Secret
+------
+git pull
+kubectl apply -f mysqlsecret.yml
+kubectl get secret
+kubectl describe secret my-db-secret
+
+Note Secrete store the data in encrypted format in base64
+ConfigMap stores the data in non-encrypted format you can store max 1mb of data.
+ConfigMap are stored as a volume
+ConfigMap is like UserData
+pipe | in the configmap will execute the script line by line
+
+
+git pull
+kubectl apply -f mysql-deployment.yml
+kubectl get deploy
+kubectl describe deploy mysql
+kubectl get pod
+kubectl exec -it NameOfThePod /bin/bash
+mysql -u root -p
+Db Password:-dbpassword11
+show databases;
+
+git pull
+kubectl apply -f mysqlclusterip.yaml
+kubectl get svc
+kubectl describe svc mysql
+
+
+git pull
+kubectl apply -f usermgmtwebapp.yml
+kubectl get pod
+kubectl logs usermgmt-webapp-7bfd87fb56-xsp9z
+kubectl expose pod usermgmt-webapp-578646d6cf-bnffg --type=NodePort --port=8080 --name=my-app-service
+
+kubectl get svc
+username:-piyush
+password:-password101
+========================================================
