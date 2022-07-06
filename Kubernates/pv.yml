@@ -9,5 +9,5 @@ spec:
     - ReadWriteOnce
   storageClassName: nodestorage
   hostPath:
-    path: /mnt/db/data
+    path: /mnt/data
 
