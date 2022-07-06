@@ -13,6 +13,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.nirvana.hm.constant.Constants;
 import com.nirvana.hm.dao.GuestRepository;
 import com.nirvana.hm.dao.ReservationRepository;
 import com.nirvana.hm.entity.Guest;
@@ -48,7 +49,7 @@ public class InvoiceService {
 		invoice.setCheckInDate(reservation.getCheckInDate());
 		invoice.setCheckOutDate(reservation.getCheckOutDate());
 		invoice.setGst(calculateGstCharges(reservation.getCheckInDate(), reservation.getCheckOutDate()));
-		invoice.setPerDayCharges(1200.00f);
+		invoice.setPerDayCharges(Constants.PER_DAY_CHARGES);
 		invoice.setTotalAmount(calculateTotalCharges(reservation.getCheckInDate(), reservation.getCheckOutDate()));
 		invoice.setTotalDay(calculateBoookingDays(reservation.getCheckInDate(), reservation.getCheckOutDate()));
 		System.out.println("Inside getInvoiceByResId 4");
@@ -62,7 +63,7 @@ public class InvoiceService {
 	}
 	
 	public float calculateTotalCharges(Date checkInDate, Date checkOutDate){
-		float totalCostWithoutGST = Float.valueOf(calculateBoookingDays(checkInDate, checkOutDate)*Long.valueOf(1200));
+		float totalCostWithoutGST = Float.valueOf(calculateBoookingDays(checkInDate, checkOutDate)*Constants.PER_DAY_CHARGES);
 		System.out.println("TotalCost: "+totalCostWithoutGST);
 		float gstCharges = calculateGstCharges(checkInDate, checkOutDate);
 		System.out.println("Total: "+totalCostWithoutGST+gstCharges);
@@ -75,7 +76,7 @@ public class InvoiceService {
 	}
 	
 	public float calculateGstCharges(Date checkInDate, Date checkOutDate){
-		float oneDayGstCharge = (float) ((18*1200)/100);
+		float oneDayGstCharge = (float) ((Constants.GST_VALUE*Constants.PER_DAY_CHARGES)/100);
 		System.out.println("One Day GST:"+oneDayGstCharge);
 		System.out.println((Float.valueOf(calculateBoookingDays(checkInDate, checkOutDate)))*oneDayGstCharge);
 		return (Float.valueOf(calculateBoookingDays(checkInDate, checkOutDate)))*oneDayGstCharge;

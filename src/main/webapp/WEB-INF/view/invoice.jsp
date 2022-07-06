@@ -77,7 +77,7 @@
 					<tr>											
 				</tbody>
 			</table>
-			<a class="btn btn-light btn-sm" href="/welcome">Back</a>
+			<a class="btn btn-light btn-sm" href="/reservations">Back</a>
 		</div>
 	</div>
 </body>
