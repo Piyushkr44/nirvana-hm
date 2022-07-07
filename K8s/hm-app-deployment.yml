@@ -19,7 +19,7 @@ spec:
         image: piyush1607kr/nirvana-hm:v2
         ports:
           - containerPort: 8080
-            name: hotel-deploy
+            name: hm-deploy
         env:
               - name: DB_HOSTNAME
                 value: 192.168.145.241 #Mysql pord ipAddress
@@ -32,5 +32,5 @@ spec:
               - name: DB_PASSWORD
                 valueFrom:
                   secretKeyRef:
-                    name: my-hm-secret #this is the name of the secret
+                    name: hm-db-secret #this is the name of the secret
                     key: db-password #

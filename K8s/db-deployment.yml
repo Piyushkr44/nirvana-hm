@@ -24,7 +24,7 @@ spec:
               - name: MYSQL_ROOT_PASSWORD 
                 valueFrom:
                   secretKeyRef:
-                    name: my-hm-secret
+                    name: hm-db-secret
                     key: db-password
             ports:
               - containerPort: 3306 
@@ -32,14 +32,14 @@ spec:
             volumeMounts:
             - name: mysql-persistent-volume  
               mountPath: /var/lib/mysql 
-            - name: usermgmt-dbscript 
+            - name: hm-dbscript 
               mountPath: /docker-entrypoint-initdb.d 
         volumes: #the name of the volume and the mount will be same
           - name: mysql-persistent-volume 
             persistentVolumeClaim:
             #mapped to pvc claim we created earlier
-              claimName: my-hm-pvc
-          - name: usermgmt-dbscript
+              claimName: hm-data-pvc
+          - name: hm-dbscript
             configMap: 
-              name: hotel-db-create
+              name: db-creation-script
 
