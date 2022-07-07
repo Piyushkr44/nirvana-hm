@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nirvana-app
-        image: piyush1607kr/nirvana-hm:v2
+        image: piyush1607kr/nirvana:v2
         ports:
           - containerPort: 8080
             name: hm-deploy
