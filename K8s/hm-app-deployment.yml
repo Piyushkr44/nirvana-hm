@@ -22,7 +22,7 @@ spec:
             name: hm-deploy
         env:
               - name: DB_HOSTNAME
-                value: "my-db-container" #Mysql pord ipAddress
+                value: "hotel-db-deployment" #Mysql pord ipAddress
               - name: DB_PORT
                 value: "3306"
               - name: DB_NAME 
