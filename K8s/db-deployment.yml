@@ -8,14 +8,14 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hotel-db-deployment
+      app: nirvana-app
   strategy:
     type: Recreate
   template:
     metadata: 
       name: my-hm-db
       labels:
-        app: hotel-db-deployment
+        app: nirvana-app
     spec:
         containers:
           - name: my-db-container
