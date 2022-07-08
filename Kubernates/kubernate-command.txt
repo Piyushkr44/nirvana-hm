@@ -9,6 +9,7 @@ In master
 git pull
 kubectl apply -f pv.yml
 kubectl get pv
+kubectl describe pv pv_name
 git pull
 kubectl apply -f pvc.yml
 kubectl get pv
@@ -49,6 +50,9 @@ git pull
 kubectl apply -f mysqlclusterip.yaml
 kubectl get svc
 kubectl describe svc mysql
+kubectl describe pod mysql_pod_name
+copy the ip address
+put it inside the app deployment file in the host
 
 
 git pull
